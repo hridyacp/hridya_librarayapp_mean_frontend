@@ -1,0 +1,39 @@
+<div class="banner">
+    <div class="row">
+     <h1 id="heads">{{title}}</h1>
+   </div>
+   <div class="row">    
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     </div>
+    <div class="booksection" *ngFor="let i of authors">
+     <div class="row" id="books1" > 
+        
+     <div class="row">    
+       <br>
+       <div class="col-md-4 col-sm-3 text-center">
+         <a class="story-title" href="#"><img alt="" src={{i.imagepath}} class="img-rounded"></a>
+       </div>
+       <div class="col-md-8 col-sm-9">
+         <h3 style="font-family: cursive;">{{i.author}}</h3>
+         <div class="row">
+           <div class="col-xs-9">
+             <h4><span class="label label-default" style="font-family: cursive;">{{i.book}}</span></h4><h4>
+             <small style="font-family: cursive; color:white;" >{{i.genre}} <button (click)="getAuthors(i)" style="font-family: cursive;" >Read More</button></small>
+             </h4></div>
+           <div class="col-xs-3"></div>
+         </div>
+         <br><br>
+       </div>
+    
+   </div>
+   
+      
+ </div>
+ <br>
+ </div>
+ </div>

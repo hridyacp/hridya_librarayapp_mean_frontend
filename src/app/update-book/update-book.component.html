@@ -1,0 +1,72 @@
+<div class="banner">
+    <div class="row">
+        <div class="col-md-12">
+        <form method="POST" (ngSubmit)="editBook()"id="myforms1" #updatebook='ngForm' enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <h1>{{title}}</h1>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-row">
+                <div class="form-group col-lg-8">
+                  <div class="input-group" id="one">
+                   <h3>Book</h3> 
+                  <input type="text" class="form-control" name="title" id="book" #book='ngModel' [(ngModel)]="bookItem.title"  style="margin-left: 12%;" [class.is-invalid]='!(book.valid)' required>
+                </div>
+                  <label for="error1" id="error1" [class.d-none]='book.valid'>Please enter a book name</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-lg-8">   
+                  <div class="input-group" id="two">
+                    <h3>Author </h3> 
+                  <input type="text" class="form-control" name="author" id="author" #author='ngModel' [(ngModel)]="bookItem.author"  style="margin-left: 6%;" [class.is-invalid]='!(author.valid)' required>
+                </div>
+                <label for="error2" id="error2" [class.d-none]='author.valid'>Please enter an author name</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-8">
+                  <div class="input-group" id="three">
+                   <h3>Genre</h3>
+                  <input type="text" class="form-control" name="genre" #genre='ngModel' id="genre1"[(ngModel)]="bookItem.genre" [class.is-invalid]='!(genre.valid)' required >
+                  </div>
+                  <label for="error3" id="error3" [class.d-none]='(genre.valid)'>Please enter the genre of book</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-lg-8">
+                  <div class="input-group" id="four">
+                   <h3>Synopsis</h3>
+                  <textarea class="form-control" id="synopsis" name="synopsis" #synopsis='ngModel' [(ngModel)]="bookItem.synopsis" [class.is-invalid]='!(synopsis.valid)' rows="5" cols="33" required></textarea>
+                  </div>
+                  <label for="error4" id="error4" [class.d-none]='(synopsis.valid)'>Please enter a short synopsis of book</label>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-6">
+    <div class="form-row">
+        <div class="form-group col-lg-8">
+          <div class="input-group" id="five">
+           <h3>Image</h3>
+          <input type="file" id="image1" name="image" (change)='submitImage($event)' accept="image/*">
+          <p class="h5" *ngIf="url === undefined">Upload an image to see the preview</p>
+          <img src={{url}} class="img-fluid rounded float-start border border-dark" alt="" style="width: 180px; height: 200px; margin-top: 5%;" required>
+          </div>
+          <label for="error5" id="error5" *ngIf="url === undefined">Please upload an image of book</label>
+        </div>
+      </div>
+    </div>
+    </div>
+                <div class="form-row">   
+                  <div class="form-group col-lg-8">
+                      
+                <input type="submit" class="btn btn-primary" value="Update" id="myButton" [disabled]='!(updatebook.form.valid)'>
+              </div>
+              </div>
+                </form>
+    </div>
+    </div>
+    </div>

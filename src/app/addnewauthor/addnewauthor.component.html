@@ -1,0 +1,71 @@
+<div class="banner">
+<div class="row">
+    <div class="col-md-12">
+    <form method="POST" action="/newauthor/add" id="myforms" enctype="multipart/form-data" #addauthor="ngForm" (ngSubmit)='addNewauthor()'>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <h1>{{title}}</h1>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+          <div class="form-row">
+            <div class="form-group col-lg-8">
+              <div class="input-group" id="one">
+               <h3>Author</h3> 
+              <input type="text" class="form-control" id="author" [(ngModel)]="authorItem.author" name="author" #author="ngModel" placeholder="Author name" [class.is-invalid]='!(author.dirty)' style="margin-left: 8%;" required>
+            </div>
+              <label for="error1" id="error1" [class.d-none]='author.dirty'>Please enter author name</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-8">   
+              <div class="input-group" id="two">
+                <h3>Books </h3> 
+              <input type="text" class="form-control" id="book" name="book" [(ngModel)]="authorItem.book" #book="ngModel" placeholder="Book name" [class.is-invalid]='!(book.dirty)' style="margin-left: 8%;" required>
+            </div>
+              <label for="error2" id="error2" [class.d-none]='book.dirty'>Please enter books name</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-lg-8">
+              <div class="input-group" id="three">
+               <h3>Genre</h3>
+              <input type="text" class="form-control" id="genre" name="genre" [(ngModel)]="authorItem.genre" #genre='ngModel' placeholder="book genre" [class.is-invalid]='!(genre.dirty)' style="margin-left: 8%;" required>
+              </div>
+              <label for="error3" id="error3" [class.d-none]='genre.dirty'>Please enter the genre</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-8">
+              <div class="input-group" id="four">
+               <h3>Info</h3>
+              <textarea class="form-control" id="info" rows="5" name="info" [(ngModel)]="authorItem.info" #info='ngModel' cols="33" [class.is-invalid]='!(info.dirty)' style="margin-left: 12%;" required></textarea>
+              </div>
+              <label for="error4" id="error4" [class.d-none]='info.dirty'>Please enter a small introduction of author</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+<div class="form-row">
+    <div class="form-group col-lg-8">
+      <div class="input-group" id="five">
+       <h3>Image</h3>
+      <input type="file" id="image" name="image" (change)='submitImage($event)' accept="image/*" required>
+      <p class="h5" *ngIf="url === undefined">Upload an image to see the preview</p>
+      <img src={{url}} class="img-fluid rounded float-start border border-dark" alt="" style="width: 180px; height: 200px; margin-top: 5%;">
+      </div>
+      <label for="error5" id="error5"  *ngIf="url === undefined">Please enter an image of author</label>
+    </div>
+  </div>
+  </div>
+  </div>
+            <div class="form-row">
+              <div class="form-group col-lg-8">
+            <button type="submit" class="btn btn-primary" id="myButton" [disabled]='!(addauthor.form.valid && addauthor.form.dirty && url!==undefined)' >Add</button>        
+        </div>
+          </div>
+            </form>
+</div>
+</div>
+</div>

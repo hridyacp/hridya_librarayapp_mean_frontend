@@ -1,0 +1,125 @@
+<div class="banner">
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+      <form method="POST" action="" id="myforms1" #signup='ngForm' (ngSubmit)='signUp()'>
+        <div class="form-row">
+          <div class="form-group col-md-10">
+            <h1>{{title}}</h1>
+            </div>
+            </div>
+        <div class="form-row">
+            <div class="form-group col-md-10">
+              <div class="input-group" id="one">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <span class="fa fa-user"></span>
+                    </span>                    
+                </div>
+              <input type="firstname" class="form-control" name="fname" [(ngModel)]='signupItem.fname' id="firstname" #fname='ngModel' pattern='^([A-Za-z]+)?$' [class.is-invalid]='!(fname.dirty && fname.valid)' placeholder="First Name" required>
+              </div>
+              <label [class.d-none]='fname.dirty'>First name cannot be empty</label>
+              <label for="error" id="error" [class.d-none]='fname.valid || fname.untouched'>Please enter valid first name</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-10">
+              <div class="input-group" id="two">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <span class="fa fa-user"></span>
+                    </span>                    
+                </div>
+              <input type="lastname" class="form-control" name="lname" id="lastname" #lname='ngModel' [(ngModel)]='signupItem.lname' pattern='^([A-Za-z]+)?$' [class.is-invalid]='!(lname.dirty && lname.valid)' placeholder="Last Name" required>
+              </div>
+              <label [class.d-none]='lname.dirty'>Last name cannot be empty</label>
+              <label for="error1" id="error1" [class.d-none]='lname.valid || lname.untouched'>Please enter a valid last name</label>
+            </div>
+          </div>  
+          <div class="form-row">
+            <div class="form-group col-md-10">
+              <div class="input-group" id="three">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-phone-alt"></i>
+                    </span>                    
+                </div>
+              <input type="mobnumber" class="form-control" name="mobnumber" id="mobnumber" [(ngModel)]='signupItem.mobnumber' #mobnumber='ngModel' pattern='^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$' [class.is-invalid]='!(mobnumber.dirty && mobnumber.valid)' placeholder="Mobile Number" required>
+              </div>
+              <label [class.d-none]='mobnumber.dirty'>Mobile number cannot be empty</label>
+              <label for="error2" id="error2" [class.d-none]='mobnumber.valid || mobnumber.untouched'>Please enter a valid mobile number</label>
+            </div>
+          </div>
+        <div class="form-row">
+          <div class="form-group col-md-10">
+            <div class="input-group" id="four">
+              <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-at"></i>
+                  </span>                    
+              </div>
+            <input type="email" class="form-control" name="email" id="inputEmail4" [(ngModel)]='signupItem.email' #email='ngModel' pattern='^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$' [class.is-invalid]='!(email.dirty && email.valid)' placeholder="Email Id" required>
+            <br>
+          </div>
+          <label [class.d-none]='email.dirty'>Email cannot be empty</label>
+            <label for="error3" id="error3" [class.d-none]='email.valid || email.untouched'>Please enter a valid email</label>
+            <label style=" color: white; margin-left: -25px;"><h6 style="font-size: 16px; color:orange; font-weight: bold;">{{error}}</h6></label>
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-10">
+          <div class="input-group" id="five">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                </span>                    
+            </div>
+            <input [type]="showPassword ? 'text' : 'password'" class="form-control" name="password" [(ngModel)]='signupItem.password' id="inputPassword4" placeholder="Password" #password='ngModel' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{8,}$' [class.is-invalid]='!(password.dirty && password.valid)' data-toggle="password" required>
+      
+            <div class="input-group-append">
+              <span class="input-group-text" (click)="password_show_hide();">
+                <i class="fas fa-eye" [hidden]="showPassword" id="show_eye"></i>
+                <i class="fas fa-eye-slash" [hidden]="!showPassword" id="hide_eye"></i>
+              </span>
+          </div>
+        </div>
+          <div class="indicator">
+            <span class="weak"></span>
+            <span class="medium"></span>
+            <span class="strong"></span>
+          </div>
+          <div class="text"><label for="error4" id="error41" [class.d-none]='password.dirty'><h6>Password cannot be empty</h6></label></div>
+          <div class="text"><label
+           for="error4" id="error4" [class.d-none]='password.valid || password.untouched'><h6 style="font-size: 14px; text-align: justify;">Password should be 8 characters or more long, contain minimum 1 uppercase, 1 lowercase, 1 number and a special character.</h6></label></div>
+        </div>
+      </div>
+        <div class="form-row">
+            <div class="form-group col-md-10">
+              <div class="input-group" id="six">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                    </span>                    
+                </div>
+                <input  [type]="showConfirmPassword ? 'text' : 'password'" class="form-control" name="confirmpwd"  appConfirmEqualValidator="password" [(ngModel)]='signupItem.confirmpwd' #confirmpwd='ngModel' ngvalidateEqual="password" [class.is-invalid]='!(confirmpwd.dirty)' id="inputPassword41" placeholder="Re-enter password" required>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="eight" (click)="password_show_hide1();">
+                    <i class="fas fa-eye" [hidden]="showConfirmPassword" id="show_eyes"></i>
+                    <i class="fas fa-eye-slash" [hidden]="!showConfirmPassword" id="hide_eyes"></i>
+                  </span>
+              </div>
+              </div>
+                <label for="error5" id="error5" [class.d-none]='password.dirty'>Please confirm password</label>
+                <span class="help-block" *ngIf="confirmpwd.errors?.notEqual && confirmpwd.touched">Password Mismatch</span>
+              </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-10">
+        <button  type="submit" class="btn btn-primary" id="myButtons" [disabled]='!(signup.valid && signup.dirty)'>Sign up</button>
+      </div>
+      </div>
+      </form>
+</div>
+<div class="col-md-2"></div>
+</div>
+</div>

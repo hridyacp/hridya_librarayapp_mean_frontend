@@ -1,0 +1,15 @@
+.footer {
+    margin-top:40px;
+    padding-top:40px;
+    padding-bottom:40px;
+   background-color: burlywood;
+  }
+  #fb{
+    font-size: xx-large;
+   }
+   #twitter{
+     font-size: xx-large;
+    }
+    #insta, #linkedln{
+     font-size: xx-large;
+    }

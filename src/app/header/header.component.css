@@ -1,0 +1,22 @@
+.navbar{
+    top: 0; /* At the bottom. Use top:0 to append it to the top */
+    background-color: rgb(41, 39, 39);
+    height: 13.5vh;
+    width: 100%; /* Full width */
+    padding: 10px; /* Some padding */
+    font-family: cursive;
+   font-size: large;
+ 
+  }
+  .navbar li{
+    margin-left: 8px; 
+  }
+  .navbar a{
+    text-decoration: none;
+    
+  }
+  .navbar a{
+    color:white;
+    
+  }
+  

@@ -1,0 +1,61 @@
+<div class="banner">
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+    <form action="" class="form-horizontal" id="myform" #userLogin="ngForm" (ngSubmit)="userLog()">
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <h1>{{title}}</h1>
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group ">  
+              <div class="input-group" id="one">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fas fa-at"></i>
+                    </span>                    
+                </div>
+                </div>
+                </div>
+                <div class="col-lg-8 ">
+              <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email id" [(ngModel)]="user.email" [class.is-invalid]='!(email.valid && email.dirty)' #email="ngModel" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required>
+              </div>
+              <label for="error1" id="error1" [class.d-none]='(email.dirty)'>Email cannot be empty</label>
+              <label for="error1" id="error2" [class.d-none]='email.valid || email.untouched'>Enter valid email</label>
+            </div>
+          <div class="form-row">
+            <div class="form-group">   
+              <div class="input-group" id="two">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                    </span>                    
+                  </div>  
+                  </div>
+                  </div>     
+                  <div class="col-lg-8">
+              <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="inputPassword4" name="password" [(ngModel)]="user.password" placeholder="Password"  pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{8,}$' [class.is-invalid]='!(password.valid && password.dirty)' #password="ngModel" required>
+            </div>
+              <div class="form-group">
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="password_show_hide();">
+              <i class="fas fa-eye icons" [hidden]="showPassword" id="show_eye"></i>
+                  <i class="fas fa-eye-slash icons" [hidden]="!showPassword" id="hide_eye"></i>
+                  </span>
+         </div>
+         </div>
+         <label for="error1" id="error1" [class.d-none]='(password.dirty)'>Password cannot be empty</label>
+             <label for="error2" id="error2" [class.d-none]='password.valid || password.untouched' style=" margin-left: -25px;"><h6 style="font-size: 14px; text-align: justify;">Your password should be more than 8 characters and have one small case, one upper case, one number and a special character.</h6></label>
+             <label  style=" color: white; margin-left: -25px;"><h6 style="font-size: 16px; color:orange; font-weight: bold;">{{error}}</h6></label>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+            <button type="submit" class="btn btn-primary" [disabled]='!(userLogin.form.valid && userLogin.form.dirty)' id="myButton">Login</button>
+          </div>
+        </div>
+            </form>
+</div>
+<div class="col-md-2"></div>
+</div>
+</div>

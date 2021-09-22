@@ -1,0 +1,47 @@
+<div class="banner">
+<div class="row">
+    <h1 id="heads">{{title}}</h1>
+  </div>
+  <div class="row">  
+    <div class="col-md-12"  >
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+    </div>
+
+    <div class="row" id="books1" style="margin-top: 5%;">
+      <div class="col-md-7">
+        <div class="row">
+      <div class="col-md-4 col-sm-2" style="margin-left: -4%;">
+        <a class="story-title" href="#"><img alt="" [src]="bookItem.imagepath" style="width:200px;height:240px" class="img-rounded"></a>
+      </div>
+      <div class="col-md-8 col-sm-10">
+        <h3 style="font-family: cursive; margin-top: 20%;">{{bookItem.title}}</h3>
+        <div class="row">
+          <div class="col-xs-9">
+            <h4><span class="label label-default" style="font-family: cursive;">{{bookItem.author}}</span></h4><h4>
+            <small style="font-family: cursive; color:white;" >{{bookItem.genre}}</small><br><br><br><br><br> 
+          </h4></div>  
+        </div>
+          <div class="col-xs-3"></div>
+        </div>     
+    </div> 
+  </div>
+  <div class="col-md-5" >
+    <h3 style="text-align: center; font-family: cursive;">Synopsis</h3>
+   <h3 style="margin-right: 10%; font-family: cursive; text-align: justify;"> {{bookItem.synopsis}} </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+   <button id="myButton" (click)="editBook(bookItem)" *ngIf="_auth.loggedIn() && (role=='admin')" style="font-family: cursive; color:white;" >Update</button>
+ </div>
+ <div class="col-md-6">
+   <button type="submit" id="myButtons" (click)='deleteBook(bookItem)' *ngIf="_auth.loggedIn() && (role=='admin')" style="font-family: cursive; color:white;">Delete</button>
+ </div>
+  </div>
+ 
+</div>
+</div>

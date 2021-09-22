@@ -1,0 +1,73 @@
+<div class="banner">
+    <div class="row">
+        <div class="col-md-12">
+        <form method="POST" (ngSubmit)="editAuthor()"id="myforms1" #updateauthor='ngForm' enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <h1>{{title}}</h1>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-row">
+                <div class="form-group col-lg-8">
+                  <div class="input-group" id="one">
+                   <h3>Book</h3> 
+                  <input type="text" class="form-control" name="author" id="author" #author='ngModel' [(ngModel)]="authorItem.author" [class.is-invalid]='!(author.valid)' pattern='^([A-Za-z ]+)?$' style="margin-left: 12%;" required>
+                </div>
+                <label for="error1" id="error1" [class.d-none]='author.valid'>Please enter author name</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-lg-8">   
+                  <div class="input-group" id="two">
+                    <h3>Author </h3> 
+                  <input type="text" class="form-control" name="book" id="book" #book='ngModel' [(ngModel)]="authorItem.book" [class.is-invalid]='!(book.valid)' pattern='^([A-Za-z0-9, ]+)?$' style="margin-left: 6%;" required>
+                </div>
+                <label for="error2" id="error2" [class.d-none]='book.valid'>Please enter books name</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-8">
+                  <div class="input-group" id="three">
+                   <h3>Genre</h3>
+                  <input type="text" class="form-control" name="genre" id="genre1" #genre='ngModel' [class.is-invalid]='!(genre.valid)' pattern='^([A-Za-z0-9, ]+)?$' [(ngModel)]="authorItem.genre" required >
+                  </div>
+                  <label for="error3" id="error3" [class.d-none]='genre.valid'>Please enter the genre</label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-lg-8">
+                  <div class="input-group" id="four">
+                   <h3>Synopsis</h3>
+                  <textarea class="form-control" id="info" name="info" #info='ngModel' [(ngModel)]="authorItem.info" [class.is-invalid]='!(info.valid)' pattern='^([A-Za-z0-9\W|_ ]+)?$' rows="5" cols="33" required></textarea>
+                  </div>
+                  <label for="error4" id="error4" [class.d-none]='info.valid'>Please enter a small introduction of author</label>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-6">
+    <div class="form-row">
+        <div class="form-group col-lg-8">
+          <div class="input-group" id="five">
+           <h3>Image</h3>
+          <input type="file" id="image1" name="image" (change)='submitImage($event)' accept="image/*">
+          <p class="h5" *ngIf="url === undefined">Upload an image to see the preview</p>
+          <img src={{url}} class="img-fluid rounded float-start border border-dark" alt="" style="width: 180px; height: 200px; margin-top: 5%;">
+          </div>
+          <label for="error5" id="error5" *ngIf="url === undefined">Please upload an image</label>
+        </div>
+      </div>
+    </div>
+    </div>
+                <div class="form-row">   
+                  <div class="form-group col-lg-8">
+                      
+                <input type="submit" class="btn btn-primary" [disabled]="!(updateauthor.form.valid)" value="Update" id="myButton" >
+              </div>
+              </div>
+                </form>
+    </div>
+    </div>
+    </div>
+
